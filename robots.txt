@@ -1,0 +1,10 @@
+# Efzyba Studio — robots.txt
+User-agent: *
+Allow: /
+
+# Keep utility pages out of the index
+Disallow: /thank-you.html
+Disallow: /404.html
+Disallow: /_build/
+
+Sitemap: https://efzybastudio.com/sitemap.xml
