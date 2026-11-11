@@ -1,0 +1,204 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/luxe/fonts/fonts.css">
+<style>
+:root{--ink:#0d0b08;--ink2:#14110c;--paper:#ece3cf;--paper2:#cfc4ab;--dim:#a3977e;--foil:#c9a65a;--foilhi:#ead6a0;--rule:rgba(201,166,90,.3);
+--serif:'Bodoni Moda',serif;--sans:'Hanken Grotesk',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--ink)}
+body{font-family:var(--sans);color:var(--paper);-webkit-font-smoothing:antialiased;position:relative}
+.grain{position:absolute;inset:0;opacity:.55;pointer-events:none;z-index:50;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .8 0 0 0 0 .7 0 0 0 0 .5 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.vignette{position:absolute;inset:0;z-index:49;pointer-events:none;background:radial-gradient(ellipse 75% 70% at 50% 45%,transparent 55%,rgba(0,0,0,.55))}
+.scene{position:absolute;inset:0;opacity:0}
+.small{font-size:22px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:450}
+.serif{font-family:var(--serif)}
+/* S1 */
+#rule1{position:absolute;left:260px;right:260px;top:300px;height:1px;background:var(--rule);transform-origin:left}
+#rule1b{position:absolute;left:260px;right:260px;top:820px;height:1px;background:var(--rule);transform-origin:right}
+#seal{position:absolute;left:50%;top:345px;width:270px;height:270px;margin-left:-135px}
+#seal img{width:100%;height:100%;filter:drop-shadow(0 14px 30px rgba(0,0,0,.7))}
+#sheen{position:absolute;inset:0;background:linear-gradient(105deg,transparent 38%,rgba(255,246,220,.95) 50%,transparent 62%);background-size:300% 100%;
+  -webkit-mask:url(/luxe/img/monogram-foil.png) center/contain no-repeat;mix-blend-mode:screen}
+#word{position:absolute;left:0;right:0;top:660px;text-align:center;font-family:var(--serif);font-size:84px;letter-spacing:-.01em}
+#word i{color:var(--dim)}
+#loc{position:absolute;left:0;right:0;top:850px;text-align:center}
+#s1top{position:absolute;left:260px;right:260px;top:250px;display:flex;justify-content:space-between}
+/* S2 */
+#h1{position:absolute;left:0;right:0;top:250px;text-align:center;font-family:var(--serif);font-size:168px;line-height:1.0;letter-spacing:-.025em;font-weight:400}
+#h1 .ln{display:block}
+#h1 em{color:var(--foilhi);font-style:italic}
+#s2cap{position:absolute;left:0;right:0;top:860px;text-align:center}
+/* S3 */
+#plateWrap{position:absolute;left:120px;top:150px;width:1120px;height:697px}
+.plate{position:absolute;inset:0;overflow:hidden;border-radius:3px;background:#0a0806}
+.plate img{width:100%;height:100%;object-fit:cover}
+.pmark{position:absolute;left:22px;top:18px;font-family:var(--serif);font-style:italic;font-size:28px;color:var(--paper2);text-shadow:0 2px 10px #000}
+#s3head{position:absolute;left:120px;top:880px;right:120px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--rule);padding-top:22px}
+#s3head .serif{font-size:44px}
+.res{position:absolute;left:1320px;top:250px;width:520px}
+.res .client{font-family:var(--serif);font-size:58px;line-height:1.05}
+.res .yr{margin-top:10px}
+.res .fig{font-family:var(--serif);font-size:200px;line-height:1;color:var(--foilhi);margin-top:70px;letter-spacing:-.03em;font-variant-numeric:lining-nums}
+.res .lab{font-size:36px;color:var(--paper2);margin-top:18px;line-height:1.25}
+.pl{font-family:var(--sans);font-weight:300;font-size:.62em;vertical-align:.32em;margin-right:.04em}
+.res .rl{height:1px;background:var(--rule);margin-top:34px;transform-origin:left}
+/* S4 */
+#browser{position:absolute;left:280px;top:60px;width:1360px;height:820px;border-radius:14px;overflow:hidden;background:#000;
+  box-shadow:0 60px 120px -30px rgba(0,0,0,.9),0 0 0 1px rgba(201,166,90,.28);transform-origin:50% 100%}
+#chrome{height:40px;background:#17140f;display:flex;align-items:center;gap:9px;padding-left:18px;border-bottom:1px solid rgba(201,166,90,.18)}
+#chrome i{width:12px;height:12px;border-radius:50%;background:#3a332a}
+#url{margin-left:auto;margin-right:auto;transform:translateX(-30px);font-size:16px;color:var(--dim);background:#0f0d0a;padding:5px 60px;border-radius:7px}
+#frame{width:1440px;height:826px;border:0;transform:scale(.94444);transform-origin:0 0;display:block;background:var(--ink)}
+#s4cap{position:absolute;left:0;right:0;top:940px;text-align:center;font-family:var(--serif);font-size:50px;font-variant-numeric:lining-nums}
+#s4cap b{font-weight:400;color:var(--foilhi)}
+#s4cap span{color:var(--dim);margin:0 26px}
+/* S5 */
+#seal5{position:absolute;left:50%;top:170px;width:120px;height:120px;margin-left:-60px}
+#h5{font-weight:400;position:absolute;left:0;right:0;top:350px;text-align:center;font-family:var(--serif);font-size:124px;line-height:1.02;letter-spacing:-.02em}
+#h5 em{font-style:normal;color:var(--foilhi)}
+#btn{position:absolute;left:50%;top:680px;height:96px;padding:0 50px 0 58px;transform-origin:center;border-radius:999px;display:flex;align-items:center;gap:22px;
+  font:500 34px/1 var(--sans);color:#17120a;white-space:nowrap;
+  background:linear-gradient(180deg,#ead6a0,#c9a65a 55%,#b18f45);box-shadow:0 1px 0 rgba(255,240,200,.5) inset,0 22px 44px -14px rgba(0,0,0,.8)}
+#btn svg{width:32px;height:32px}
+#url5{position:absolute;left:0;right:0;top:860px;text-align:center;font-size:30px;letter-spacing:.24em;text-transform:uppercase;color:var(--paper2)}
+#cursor{position:absolute;width:44px;height:44px;z-index:40;filter:drop-shadow(0 4px 8px rgba(0,0,0,.6))}
+#ripple{position:absolute;width:30px;height:30px;border-radius:50%;border:2px solid var(--foilhi);margin:-15px 0 0 -15px;opacity:0;z-index:39}
+</style></head>
+<body>
+<div class="grain"></div><div class="vignette"></div>
+
+<div id="s1" class="scene">
+  <div id="s1top" class="small"><span>The Annual Review</span><span>Vol. VI</span></div>
+  <div id="rule1"></div>
+  <div id="seal"><img src="/luxe/img/monogram-foil.png"><div id="sheen"></div></div>
+  <div id="word">Efzyba <i>Studio</i></div>
+  <div id="rule1b"></div>
+  <div id="loc" class="small">Design · Data · Growth &nbsp;—&nbsp; Lagos · London</div>
+</div>
+
+<div id="s2" class="scene">
+  <h1 id="h1"><span class="ln">We design digital</span><span class="ln">experiences that feel</span><span class="ln">like the <em>future.</em></span></h1>
+  <div id="s2cap" class="small">A senior studio for design, data and growth</div>
+</div>
+
+<div id="s3" class="scene">
+  <div id="plateWrap">
+    <div class="plate" id="p0"><img src="/luxe/img/project-hebe.webp"><span class="pmark">Plate I</span></div>
+    <div class="plate" id="p1"><img src="/luxe/img/project-healthwell.webp"><span class="pmark">Plate III</span></div>
+    <div class="plate" id="p2"><img src="/luxe/img/project-designcube.webp"><span class="pmark">Plate IV</span></div>
+  </div>
+  <div class="res" id="r0"><div class="client">Hebe Network</div><div class="small yr">CleanTech · 2025</div><div class="fig"><span class="pl">+</span>85%</div><div class="lab">qualified leads,<br>quarter over quarter</div><div class="rl"></div></div>
+  <div class="res" id="r1"><div class="client">HealthWell</div><div class="small yr">Health · 2024</div><div class="fig"><span class="pl">+</span>72%</div><div class="lab">online bookings<br>in the first quarter</div><div class="rl"></div></div>
+  <div class="res" id="r2"><div class="client">DesignCube</div><div class="small yr">Creative studio · 2024</div><div class="fig">2.3×</div><div class="lab">demo requests<br>in two months</div><div class="rl"></div></div>
+  <div id="s3head"><span class="serif">The portfolio, <span style="color:var(--foilhi)">with results.</span></span><span class="small">Measured after launch</span></div>
+</div>
+
+<div id="s4" class="scene">
+  <div id="browser"><div id="chrome"><i></i><i></i><i></i><div id="url">efzybastudio.com</div></div>
+    <iframe id="frame" src="/luxe/index.html"></iframe></div>
+  <div id="s4cap"><b>80<span class="pl" style="vertical-align:.5em;margin-left:.04em">+</span></b> clients<span>·</span><b>120<span class="pl" style="vertical-align:.5em;margin-left:.04em">+</span></b> websites<span>·</span><b>6<span class="pl" style="vertical-align:.5em;margin-left:.04em">+</span></b> years</div>
+</div>
+
+<div id="s5" class="scene">
+  <div id="seal5"><img src="/luxe/img/monogram-foil.png" style="width:100%"></div>
+  <h2 id="h5">Every project starts<br>with <em>a conversation.</em></h2>
+  <div id="btn">Book a private strategy call <svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div id="url5">efzybastudio.com</div>
+  <div id="ripple"></div>
+  <svg id="cursor" viewBox="0 0 24 24"><path d="M5 3l14 8-6.2 1.6L10 19z" fill="#ece3cf" stroke="#0d0b08" stroke-width="1.2" stroke-linejoin="round"/></svg>
+</div>
+
+<script>
+const B=60/96;               // one beat
+const T=b=>b*B;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const p=(t,a,d)=>cl((t-a)/d);
+const eo=x=>1-Math.pow(1-x,4);          // strong ease-out
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const $=id=>document.getElementById(id);
+const S=[[0,6],[6,13],[13,22],[22,27],[27,34]];
+function env(t,a,b,fi=.35,fo=.3,last=false){ // scene opacity: dip through black
+  const A=T(a),Bb=T(b); if(t<A||t>=Bb+ (last?99:0)) return 0;
+  const i=eo(p(t,A,fi)); const o=last?1:1-p(t,Bb-fo,fo); return Math.min(i,o);
+}
+function rise(el,t,a,dist=40,dur=.9,blur=10){
+  const k=eo(p(t,a,dur)); el.style.opacity=k; el.style.transform=`translateY(${(1-k)*dist}px)`; el.style.filter=`blur(${(1-k)*blur}px)`;
+}
+window.render=function(t){
+  // S1
+  $('s1').style.opacity=env(t,0,6,.01);
+  const r=eio(p(t,.05,1.1)); $('rule1').style.transform=`scaleX(${r})`; $('rule1b').style.transform=`scaleX(${r})`;
+  rise($('s1top'),t,.2,0,.8,0);
+  const st=eo(p(t,T(1),.7)); const seal=$('seal');
+  seal.style.opacity=p(t,T(1),.12); seal.style.transform=`scale(${1.18-.18*st})`; seal.style.filter=`blur(${(1-st)*8}px)`;
+  $('sheen').style.backgroundPosition=`${100-100*eio(p(t,T(2),1.4))}% 0`;
+  rise($('word'),t,T(2),30,.9,8);
+  rise($('loc'),t,T(3.5),20,.8,4);
+  // slow push-in on whole scene
+  $('s1').style.transform=`scale(${1+0.025*p(t,0,T(6))})`;
+
+  // S2
+  $('s2').style.opacity=env(t,6,13);
+  document.querySelectorAll('#h1 .ln').forEach((el,i)=>rise(el,t,T(6+i)+.05,60,1.0,12));
+  rise($('s2cap'),t,T(9.5),20,.9,4);
+  $('s2').style.transform=`scale(${1.03-0.03*eo(p(t,T(6),T(7)))})`;
+
+  // S3
+  $('s3').style.opacity=env(t,13,22);
+  for(let i=0;i<3;i++){
+    const a=T(13+3*i);
+    const k=eio(p(t,a,.75)); const pl=$('p'+i);
+    pl.style.clipPath=`inset(${(1-k)*100}% 0 0 0)`; pl.style.zIndex=i;
+    pl.querySelector('img').style.transform=`scale(${1.12-.08*eo(p(t,a,2.2))-.04*p(t,a,T(3)+.5)})`;
+    const rr=$('r'+i); const end=i<2?T(13+3*i+3):99;
+    const kin=eo(p(t,a+.15,.8)); const kout=p(t,end-.22,.22);
+    rr.style.opacity=Math.min(kin,1-kout); rr.style.transform=`translateY(${(1-kin)*30}px)`; rr.style.filter=`blur(${(1-kin)*8}px)`;
+    rr.querySelector('.rl').style.transform=`scaleX(${eio(p(t,a+.3,1))})`;
+  }
+  rise($('s3head'),t,T(13)+.2,16,.9,0);
+
+  // S4
+  $('s4').style.opacity=env(t,22,27);
+  const k4=eo(p(t,T(22),1.2));
+  $('browser').style.transform=`perspective(2400px) translateY(${(1-k4)*120}px) rotateX(${(1-k4)*14+2}deg) scale(${.96+.04*k4})`;
+  const fr=$('frame'); if(fr.contentWindow){ fr.contentWindow.scrollTo(0, 2650*eio(p(t,T(22)+.6,T(5)-.9))); }
+  rise($('s4cap'),t,T(23),20,.8,6);
+
+  // S5
+  $('s5').style.opacity=env(t,27,34,.35,.3,true);
+  rise($('seal5'),t,T(27),0,.8,8);
+  rise($('h5'),t,T(27)+.1,40,1.0,10);
+  const bk=eo(p(t,T(28.5),.8)); const btn=$('btn');
+  const press=t>=T(31)&&t<T(31)+.16?.96:(t>=T(31)+.16?1-.04*(1-eo(p(t,T(31)+.16,.25))):1);
+  btn.style.opacity=bk; btn.style.transform=`translateX(-50%) translateY(${(1-bk)*24}px) scale(${press})`;
+  btn.style.filter= t>=T(31)+.16 ? `brightness(${1+.12*(1-p(t,T(31)+.16,.6))})` : 'none';
+  rise($('url5'),t,T(32),14,.8,4);
+  // cursor travels in, presses on beat 31
+  const ck=eio(p(t,T(29.5),T(31)-T(29.5)-.05));
+  const bx=960+120, by=728;
+  const cx=1500+(bx-1500)*ck, cy=1040+(by-1040)*ck;
+  const cur=$('cursor'); cur.style.left=cx+'px'; cur.style.top=cy+'px';
+  cur.style.opacity=p(t,T(29.5),.25)*(1-p(t,T(33),.4));
+  cur.style.transform=`scale(${t>=T(31)&&t<T(31)+.16?.85:1})`;
+  const rp=$('ripple'); const rk=p(t,T(31),.6); rp.style.left=bx+6+'px'; rp.style.top=by+6+'px';
+  rp.style.opacity=t>=T(31)?(1-rk)*.9:0; rp.style.transform=`scale(${1+rk*3})`;
+};
+window.ready=(async()=>{
+  await document.fonts.ready;
+  await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));
+  const fr=$('frame');
+  await new Promise(r=>{ if(fr.contentDocument&&fr.contentDocument.readyState==='complete') r(); else fr.addEventListener('load',r,{once:true}); });
+  const d=fr.contentDocument;
+  const s=d.createElement('style');
+  s.textContent='*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}html{scroll-behavior:auto!important;scrollbar-width:none}::-webkit-scrollbar{display:none}.js .reveal .plate{clip-path:none!important}.js .reveal .plate img{transform:none!important}';
+  d.head.appendChild(s);
+  d.documentElement.style.scrollBehavior='auto';
+  d.querySelectorAll('img').forEach(i=>i.loading='eager');
+  d.querySelectorAll('.reveal,.timeline').forEach(e=>e.classList.add('in'));
+  await d.fonts.ready;
+  await Promise.all([...d.images].map(i=>i.decode().catch(()=>{})));
+  return true;
+})();
+</script>
+</body></html>
