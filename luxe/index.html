@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Efzyba Studio — The Annual Review</title>
+<meta name="description" content="Efzyba Studio is a senior design, data and growth studio in Lagos and London. Websites, e-commerce, brand and digital marketing for ambitious brands. Book a private strategy call.">
+<meta name="theme-color" content="#0d0b08">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<meta property="og:title" content="Efzyba Studio — The Annual Review">
+<meta property="og:description" content="Digital experiences, designed and measured. A senior studio in Lagos and London.">
+<meta property="og:image" content="img/project-hebe.webp">
+<link rel="preload" href="fonts/BodoniModa-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/HankenGrotesk-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --ink:#0d0b08;
+  --ink-2:#14110c;
+  --ink-3:#1c1811;
+  --paper:#ece3cf;
+  --paper-2:#cfc4ab;
+  --paper-dim:#a3977e;
+  --foil:#c9a65a;
+  --foil-hi:#ead6a0;
+  --foil-lo:#8a6c32;
+  --ember:#d9782f;
+  --rule:rgba(201,166,90,.26);
+  --rule-strong:rgba(201,166,90,.55);
+  --serif:'Bodoni Moda', 'Didot', 'Bodoni 72', serif;
+  --sans:'Hanken Grotesk', system-ui, sans-serif;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-io:cubic-bezier(.77,0,.175,1);
+  --gutter:clamp(16px,4vw,56px);
+  --max:1320px;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--ink);color:var(--paper);
+  font-family:var(--sans);font-size:17px;line-height:1.65;font-weight:350;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  caret-color:var(--foil);
+  overflow-x:hidden;
+}
+::selection{background:var(--foil);color:var(--ink)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+:focus-visible{outline:1px solid var(--foil-hi);outline-offset:5px;border-radius:2px}
+html{scrollbar-color:var(--foil-lo) var(--ink);scrollbar-width:thin}
+::-webkit-scrollbar{width:9px}::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--foil-lo);border:2px solid var(--ink);border-radius:9px}
+
+/* paper grain: the cover board, not decoration — a faint laid-paper texture */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .8 0 0 0 0 .7 0 0 0 0 .5 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+main,header,footer{position:relative;z-index:1}
+
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.serif{font-family:var(--serif)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:1.02;text-wrap:balance;font-optical-sizing:auto}
+h2{font-size:clamp(2.4rem,5.2vw,4.6rem)}
+h1 em{font-style:italic;color:var(--foil-hi)}
+h2 em{font-style:normal;color:var(--foil-hi)}
+p{text-wrap:pretty}
+.lede{font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--paper-2);max-width:56ch}
+.small{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim);font-weight:450}
+.rule{height:1px;background:var(--rule);border:0}
+
+/* ---------- buttons ---------- */
+.btn{
+  --h:56px;display:inline-flex;align-items:center;gap:.9rem;height:var(--h);padding:0 1.6rem 0 1.8rem;
+  font:500 .95rem/1 var(--sans);letter-spacing:.02em;text-decoration:none;border-radius:999px;
+  background:linear-gradient(180deg,var(--foil-hi),var(--foil) 55%,#b18f45);color:#17120a;
+  box-shadow:0 1px 0 rgba(255,240,200,.5) inset,0 12px 28px -10px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.45);
+  transition:transform 160ms var(--ease-out),box-shadow 200ms ease,filter 200ms ease;
+}
+.btn svg{width:18px;height:18px;transition:transform 200ms var(--ease-out)}
+.btn:active{transform:scale(.97)}
+.btn-ghost{
+  background:transparent;color:var(--paper);box-shadow:inset 0 0 0 1px var(--rule-strong);
+}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{filter:brightness(1.07);box-shadow:0 1px 0 rgba(255,240,200,.55) inset,0 16px 32px -10px rgba(0,0,0,.8),0 3px 8px rgba(0,0,0,.5)}
+  .btn:hover svg{transform:translateX(3px)}
+  .btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--foil);filter:none;background:rgba(201,166,90,.06)}
+}
+.textlink{color:var(--paper);text-decoration:underline;text-decoration-color:var(--rule-strong);transition:text-decoration-color 200ms ease,color 200ms ease}
+.textlink:hover{text-decoration-color:var(--foil);color:var(--foil-hi)}
+
+/* ---------- masthead ---------- */
+.masthead{
+  position:sticky;top:0;z-index:20;
+  background:rgba(13,11,8,.82);backdrop-filter:saturate(1.2) blur(14px);-webkit-backdrop-filter:saturate(1.2) blur(14px);
+  border-bottom:1px solid var(--rule);
+}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:1.5rem}
+.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.brand img{width:30px;height:30px}
+.brand span{font-family:var(--serif);font-size:1.2rem;letter-spacing:.01em}
+.brand span i{color:var(--paper-dim);font-style:italic}
+.nav{display:flex;align-items:center;gap:2rem}
+.nav a:not(.btn){font-size:.88rem;color:var(--paper-2);text-decoration:none;transition:color 200ms ease}
+.nav a:not(.btn):hover{color:var(--foil-hi)}
+.nav .btn{--h:42px;padding:0 1.1rem 0 1.25rem;font-size:.85rem}
+@media (max-width:860px){.nav a:not(.btn){display:none}}
+
+/* ---------- cover ---------- */
+.cover{min-height:calc(100svh - 68px);display:flex;flex-direction:column;padding-top:clamp(20px,3vh,36px)}
+.cover-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;gap:1rem;white-space:nowrap}
+@media (max-width:520px){.cover-top{font-size:.7rem;letter-spacing:.12em}.cover-top span:first-child{display:none}.cover-top{justify-content:center}}
+.cover-top + .rule{transform-origin:left}
+.cover-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-block:clamp(28px,4.5vh,72px)}
+.seal{position:relative;width:clamp(80px,min(8vw,12vh),120px);aspect-ratio:1;margin-bottom:clamp(20px,3.2vh,40px)}
+.seal img{width:100%;height:100%;filter:drop-shadow(0 6px 18px rgba(0,0,0,.6))}
+.seal::after{ /* the foil catching light, masked to the monogram */
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,246,220,.95) 50%,transparent 65%);
+  background-size:300% 100%;background-position:100% 0;
+  -webkit-mask:url(img/monogram-foil.png) center/contain no-repeat;mask:url(img/monogram-foil.png) center/contain no-repeat;
+  mix-blend-mode:screen;opacity:.9;
+}
+.cover h1{font-size:clamp(2.9rem,min(8.4vw,10.4vh),6rem);max-width:15ch;font-weight:400;line-height:.98}
+.cover h1 .line{display:block}
+.cover .lede{margin:clamp(18px,2.6vh,32px) auto 0;text-align:center}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem 1.75rem;margin-top:clamp(24px,3.4vh,44px)}
+.cta-row .textlink{font-size:.95rem}
+
+.ledger{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.ledger > div{padding:20px 22px 22px;border-left:1px solid var(--rule)}
+.ledger > div:first-child{border-left:0;padding-left:0}
+.ledger dt{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--paper-dim)}
+.ledger dd{font-family:var(--serif);font-size:clamp(1.7rem,2.6vw,2.4rem);line-height:1.1;margin-top:6px;color:var(--paper)}
+.ledger dd sup{font-size:.55em;color:var(--foil);vertical-align:.55em;margin-left:.04em}
+.ledger dd small{font-family:var(--sans);font-size:.9rem;color:var(--paper-2);margin-left:.35em;letter-spacing:0}
+@media (max-width:760px){
+  .ledger{grid-template-columns:1fr 1fr}
+  .ledger > div:nth-child(3){border-left:0;padding-left:0}
+  .ledger > div:nth-child(n+3){border-top:1px solid var(--rule)}
+  .ledger > div{padding:16px 14px 18px}
+}
+
+/* ---------- section scaffolding ---------- */
+section{padding-block:clamp(96px,13vw,176px)}
+.sec-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:2rem 4rem;align-items:end;margin-bottom:clamp(48px,7vw,88px)}
+.sec-head .lede{justify-self:end}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr}.sec-head .lede{justify-self:start}}
+
+/* ---------- letter ---------- */
+.letter{background:var(--ink-2);border-block:1px solid var(--rule)}
+.letter-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(40px,7vw,110px);align-items:start}
+.portrait{position:relative}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;filter:grayscale(1) sepia(.35) contrast(1.08) brightness(.84);border-radius:2px}
+.portrait figcaption{margin-top:14px;display:flex;justify-content:space-between;gap:1rem;font-size:.82rem;color:var(--paper-dim)}
+.letter-body h2{font-size:clamp(2rem,3.8vw,3.3rem);margin-bottom:clamp(28px,3vw,40px)}
+.letter-body p{color:var(--paper-2);max-width:62ch;margin-bottom:1.15em}
+.letter-body > p:first-of-type::first-letter{
+  font-family:var(--serif);float:left;font-size:4.6em;line-height:.82;padding:.06em .1em 0 0;color:var(--foil-hi)
+}
+.signoff{margin-top:2.2rem;display:flex;align-items:flex-end;gap:1.5rem;flex-wrap:wrap}
+.signature{font-family:var(--serif);font-style:italic;font-size:2.1rem;line-height:1;color:var(--foil-hi)}
+.signoff p{margin:0;font-size:.88rem;color:var(--paper-dim);line-height:1.5}
+@media (max-width:860px){.letter-grid{grid-template-columns:1fr}.portrait{max-width:360px}}
+
+/* ---------- holdings ---------- */
+.holdings{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(56px,7vw,104px) clamp(20px,3vw,40px)}
+.holding{grid-column:span 6;display:flex;flex-direction:column}
+.holding.wide{grid-column:1 / -1}
+.plate{position:relative;overflow:hidden;background:#0a0806;border-radius:2px}
+.plate img{width:100%;aspect-ratio:1312/816;object-fit:cover;transition:transform 900ms var(--ease-out)}
+.holding.wide .plate img{aspect-ratio:16/8;object-position:50% 50%}
+.plate-mark{position:absolute;left:16px;top:14px;font-family:var(--serif);font-style:italic;font-size:.95rem;color:var(--paper-2);text-shadow:0 1px 8px rgba(0,0,0,.8)}
+@media (hover:hover) and (pointer:fine){.holding:hover .plate img{transform:scale(1.025)}}
+.h-caption{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem 2rem;align-items:baseline;padding-top:22px}
+.h-caption h3{font-size:clamp(1.6rem,2.5vw,2.25rem)}
+.h-caption h3 a{text-decoration:none}
+.h-caption h3 a:hover{color:var(--foil-hi)}
+.h-caption .yr{font-size:.85rem;color:var(--paper-dim)}
+.h-caption p{grid-column:1/-1;color:var(--paper-2);max-width:60ch;font-size:.98rem}
+.h-table{width:100%;border-collapse:collapse;margin-top:18px;font-size:.88rem}
+.h-table th,.h-table td{padding:10px 0;border-top:1px solid var(--rule);text-align:left;vertical-align:baseline;font-weight:400}
+.h-table th{color:var(--paper-dim);width:38%;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+.h-table td{color:var(--paper)}
+.h-table tr:last-child th,.h-table tr:last-child td{border-bottom:1px solid var(--rule)}
+.h-table .fig{font-family:var(--serif);font-size:1.45rem;color:var(--foil-hi);margin-right:.4rem}
+.holding.wide .h-body{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:2rem clamp(32px,5vw,80px);align-items:start}
+.holding.wide .h-body .h-table{margin-top:22px}
+@media (max-width:860px){
+  .holding,.holding.wide{grid-column:1/-1}
+  .holding.wide .h-body{grid-template-columns:1fr;gap:0}
+  .holding.wide .plate img{aspect-ratio:1312/816}
+}
+
+/* ---------- practice ---------- */
+.practice{border-top:1px solid var(--rule)}
+.practice-row{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:1rem 3rem;padding:clamp(26px,3vw,38px) 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.practice-row h3{font-size:clamp(1.6rem,2.8vw,2.4rem)}
+.practice-row h3 em{color:var(--foil-hi);font-style:normal}
+.practice-row ul{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem 0;color:var(--paper-2)}
+.practice-row li{font-size:1.02rem}
+.practice-row li:not(:last-child)::after{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--foil-lo);margin:0 .9rem;vertical-align:middle}
+.practice-row .note{grid-column:2;font-size:.9rem;color:var(--paper-dim);max-width:60ch}
+@media (max-width:760px){.practice-row{grid-template-columns:1fr}.practice-row .note{grid-column:1}}
+
+/* ---------- method ---------- */
+.method{background:var(--ink-2);border-block:1px solid var(--rule)}
+.timeline{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,44px)}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--rule-strong);transform-origin:left}
+.stage{position:relative;padding-top:44px}
+.stage::before{content:"";position:absolute;top:4px;left:0;width:11px;height:11px;border-radius:50%;background:var(--ink-2);box-shadow:inset 0 0 0 1px var(--foil)}
+.stage:last-child::before{background:var(--foil)}
+.stage h3{font-size:clamp(1.7rem,2.6vw,2.3rem);margin-bottom:.7rem}
+.stage p{color:var(--paper-2);font-size:.98rem}
+.method-foot{margin-top:clamp(48px,6vw,72px);padding-top:24px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:1rem 3rem;color:var(--paper-2)}
+.method-foot b{font-family:var(--serif);font-weight:400;font-size:1.5rem;color:var(--paper);margin-right:.5rem}
+@media (max-width:860px){
+  .timeline{grid-template-columns:1fr;gap:0}
+  .timeline::before{left:5px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .stage{padding:0 0 36px 40px}
+  .stage::before{top:12px}
+}
+
+/* ---------- team ---------- */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.5vw,36px)}
+.member img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(1) sepia(.3) contrast(1.08) brightness(.82);border-radius:2px;transition:filter 500ms ease}
+@media (hover:hover) and (pointer:fine){.member:hover img{filter:grayscale(.15) sepia(.1) contrast(1.02) brightness(.98)}}
+.member h3{font-size:1.45rem;margin-top:18px}
+.member .role{font-size:.85rem;color:var(--foil);margin-top:4px}
+.member p{font-size:.92rem;color:var(--paper-2);margin-top:10px}
+@media (max-width:960px){.team{grid-template-columns:1fr 1fr;row-gap:48px}}
+@media (max-width:480px){.team{grid-template-columns:1fr}.member img{max-width:280px}}
+
+/* ---------- testimony ---------- */
+.testimony blockquote{margin:0}
+.t-label{font-family:var(--sans);font-size:.8rem;letter-spacing:.14em;line-height:1.4;margin-bottom:28px;padding-top:clamp(48px,6vw,72px);border-top:1px solid var(--rule)}
+.quote-lead{font-family:var(--serif);font-size:clamp(1.9rem,3.9vw,3.4rem);line-height:1.14;letter-spacing:-.015em;max-width:24ch;text-wrap:balance}
+.quote-lead::before{content:"\201C";color:var(--foil);margin-left:-.45em;padding-right:.05em}
+.quote-lead::after{content:"\201D";color:var(--foil)}
+.cite{display:block;margin-top:26px;font-style:normal;color:var(--paper-dim);font-size:.92rem}
+.cite b{color:var(--paper);font-weight:500}
+.quotes-minor{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);margin-top:clamp(64px,8vw,104px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--rule)}
+.quotes-minor p{font-family:var(--serif);font-size:1.3rem;line-height:1.45;color:var(--paper-2)}
+@media (max-width:760px){.quotes-minor{grid-template-columns:1fr}.quote-lead::before{margin-left:0}}
+
+/* ---------- close ---------- */
+.close{text-align:center;border-top:1px solid var(--rule);background:radial-gradient(ellipse 60% 55% at 50% 0%,rgba(201,166,90,.10),transparent 70%)}
+.close h2{max-width:16ch;margin-inline:auto}
+.close .lede{margin:28px auto 0;text-align:center}
+.close .cta-row{margin-top:44px}
+.contact-table{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(72px,9vw,120px);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);text-align:left}
+.contact-table > div{padding:20px 22px;border-left:1px solid var(--rule)}
+.contact-table > div:first-child{border-left:0;padding-left:0}
+.contact-table dt{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--paper-dim)}
+.contact-table dd{margin-top:6px;font-size:1rem;overflow-wrap:anywhere}
+.contact-table a{text-decoration:none}
+.contact-table a:hover{color:var(--foil-hi)}
+@media (max-width:860px){
+  .contact-table{grid-template-columns:1fr 1fr}
+  .contact-table > div:nth-child(3){border-left:0;padding-left:0}
+  .contact-table > div:nth-child(n+3){border-top:1px solid var(--rule)}
+  .contact-table > div{padding:16px 14px}
+}
+@media (max-width:480px){
+  .contact-table{grid-template-columns:1fr}
+  .contact-table > div{border-left:0!important;padding-left:0!important}
+  .contact-table > div:nth-child(n+2){border-top:1px solid var(--rule)}
+}
+
+.colophon{padding-block:36px 44px;border-top:1px solid var(--rule)}
+.colophon .wrap{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:center;font-size:.85rem;color:var(--paper-dim)}
+.colophon a{text-decoration:none}.colophon a:hover{color:var(--foil-hi)}
+
+/* =========================================================
+   Motion: one authored moment (the cover is bound and stamped),
+   then a single quiet grammar for plates: they are uncovered.
+   Content is visible by default; only .js pages animate.
+   ========================================================= */
+@media (prefers-reduced-motion:no-preference){
+  .js .cover-top + .rule{animation:draw 1100ms var(--ease-io) 80ms both}
+  .js .seal{animation:stamp 900ms var(--ease-out) 150ms both}
+  .js .seal::after{animation:sheen 1800ms var(--ease-io) 900ms both}
+  .js .cover h1 .line{animation:rise 1000ms var(--ease-out) both}
+  .js .cover h1 .line:nth-child(1){animation-delay:340ms}
+  .js .cover h1 .line:nth-child(2){animation-delay:420ms}
+  .js .cover h1 .line:nth-child(3){animation-delay:500ms}
+  .js .cover .lede{animation:fade 900ms var(--ease-out) 700ms both}
+  .js .cover .cta-row{animation:fade 900ms var(--ease-out) 800ms both}
+  .js .ledger{animation:fade 900ms var(--ease-out) 950ms both}
+
+  .js .reveal .plate{clip-path:inset(0 0 100% 0);transition:clip-path 1200ms var(--ease-io)}
+  .js .reveal .plate img{transform:scale(1.08);transition:transform 1600ms var(--ease-out)}
+  .js .reveal.in .plate{clip-path:inset(0 0 0 0)}
+  .js .reveal.in .plate img{transform:scale(1)}
+  .js .timeline::before{transform:scaleX(0);transition:transform 1400ms var(--ease-io)}
+  .js .timeline.in::before{transform:scaleX(1)}
+  @media (max-width:860px){.js .timeline::before{transform:scaleY(0);transform-origin:top}.js .timeline.in::before{transform:scaleY(1)}}
+}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes stamp{from{opacity:0;transform:scale(.92);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes sheen{from{background-position:100% 0}to{background-position:0 0}}
+@keyframes rise{from{opacity:0;transform:translateY(.35em);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .cover h1 .line,.js .cover .lede,.js .cover .cta-row,.js .ledger,.js .seal{animation:fade-only 500ms ease both}
+}
+@keyframes fade-only{from{opacity:0}to{opacity:1}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Efzyba Studio, back to top">
+      <img src="img/monogram-foil.png" alt="" width="30" height="30">
+      <span>Efzyba <i>Studio</i></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#holdings">Work</a>
+      <a href="#practice">Practice</a>
+      <a href="#method">Method</a>
+      <a href="#team">Team</a>
+      <a class="btn" href="https://calendly.com/akinolaemmanuel5" target="_blank" rel="noopener">Book a call <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- COVER -->
+  <section class="cover wrap" aria-labelledby="cover-title" style="padding-bottom:0">
+    <div class="cover-top small">
+      <span>Lagos · London</span>
+      <span class="num">The Annual Review · Vol. VI</span>
+    </div>
+    <hr class="rule">
+    <div class="cover-body">
+      <div class="seal"><img src="img/monogram-foil.png" alt="Efzyba Studio monogram" width="512" height="512"></div>
+      <h1 id="cover-title">
+        <span class="line">We design digital</span>
+        <span class="line">experiences that feel</span>
+        <span class="line">like the <em>future.</em></span>
+      </h1>
+      <p class="lede">A senior studio for design, data and growth. We build websites, e&#8209;commerce, brands and marketing for ambitious companies, and we measure every launch.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://calendly.com/akinolaemmanuel5" target="_blank" rel="noopener">Book a private strategy call <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+        <a class="textlink" href="#holdings">See the work</a>
+      </div>
+    </div>
+    <dl class="ledger num" aria-label="Studio record">
+      <div><dt>Clients served</dt><dd>80<sup>+</sup></dd></div>
+      <div><dt>Websites delivered</dt><dd>120<sup>+</sup></dd></div>
+      <div><dt>Years in practice</dt><dd>6<sup>+</sup></dd></div>
+      <div><dt>First reply</dt><dd>1 <small>business day</small></dd></div>
+    </dl>
+  </section>
+
+  <!-- HOLDINGS -->
+  <section id="holdings" aria-labelledby="holdings-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="holdings-title">The portfolio, <em>with results.</em></h2>
+        <p class="lede">Six recent engagements in clean energy, non-profit, health, SaaS and creative industries. Each figure was measured after launch.</p>
+      </div>
+
+      <div class="holdings">
+        <article class="holding wide reveal">
+          <a class="plate" href="../case-hebe.html" aria-label="Hebe Network case study">
+            <img src="img/project-hebe.webp" alt="Hebe Network website shown on a tablet: dark interface with energy storage dashboard" width="1312" height="816" loading="lazy">
+            <span class="plate-mark">Plate I</span>
+          </a>
+          <div class="h-body">
+            <div class="h-caption">
+              <h3><a href="../case-hebe.html">Hebe Network</a></h3><span class="yr num">2025</span>
+              <p>A credibility-first website for a renewable energy innovator. We turned a technology story that read like a whitepaper into three acts that investors and partners grasp in seconds.</p>
+            </div>
+            <table class="h-table num">
+              <tr><th scope="row">Result</th><td><span class="fig">+85%</span>qualified leads, quarter over quarter</td></tr>
+              <tr><th scope="row">Engagement</th><td><span class="fig">3.4 min</span>average session</td></tr>
+              <tr><th scope="row">Scope</th><td>Web design, brand identity, technical SEO, copy · Framer · 4 weeks</td></tr>
+            </table>
+          </div>
+        </article>
+
+        <article class="holding reveal">
+          <a class="plate" href="../case-fundjoy.html" aria-label="FundJoy case study">
+            <img src="img/project-fundjoy.webp" alt="FundJoy fundraising website on a laptop" width="1312" height="816" loading="lazy">
+            <span class="plate-mark">Plate II</span>
+          </a>
+          <div class="h-caption">
+            <h3><a href="../case-fundjoy.html">FundJoy</a></h3><span class="yr num">2025</span>
+            <p>Fundraising and public speaking, rebuilt around two clear journeys: donors who want trust and speakers who want a stage.</p>
+          </div>
+          <table class="h-table num">
+            <tr><th scope="row">Result</th><td><span class="fig">+64%</span>online donations</td></tr>
+            <tr><th scope="row">Scope</th><td>UX research, web design, SEO · Framer + CMS</td></tr>
+          </table>
+        </article>
+
+        <article class="holding reveal">
+          <a class="plate" href="../case-healthwell.html" aria-label="HealthWell case study">
+            <img src="img/project-healthwell.webp" alt="HealthWell wellness platform on a tablet with appointment booking" width="1312" height="816" loading="lazy">
+            <span class="plate-mark">Plate III</span>
+          </a>
+          <div class="h-caption">
+            <h3><a href="../case-healthwell.html">HealthWell</a></h3><span class="yr num">2024</span>
+            <p>A calm wellness platform where booking is one tap from every page, designed for the 68% of patients who arrive on a phone.</p>
+          </div>
+          <table class="h-table num">
+            <tr><th scope="row">Result</th><td><span class="fig">+72%</span>online bookings in the first quarter</td></tr>
+            <tr><th scope="row">Scope</th><td>UX, web design, accessibility, SEO · Framer</td></tr>
+          </table>
+        </article>
+
+        <article class="holding wide reveal">
+          <a class="plate" href="../case-designcube.html" aria-label="DesignCube case study">
+            <img src="img/project-designcube.webp" alt="DesignCube studio website with a glowing 3D cube hero" width="1312" height="816" loading="lazy">
+            <span class="plate-mark">Plate IV</span>
+          </a>
+          <div class="h-body">
+            <div class="h-caption">
+              <h3><a href="../case-designcube.html">DesignCube</a></h3><span class="yr num">2024</span>
+              <p>A motion-first studio site: a 3D cube hero that follows the cursor, layered parallax and a clear hierarchy that keeps the play from getting in the way of the message.</p>
+            </div>
+            <table class="h-table num">
+              <tr><th scope="row">Result</th><td><span class="fig">2.3×</span>demo requests in two months</td></tr>
+              <tr><th scope="row">Engagement</th><td><span class="fig">+58%</span>engagement rate</td></tr>
+              <tr><th scope="row">Scope</th><td>UI, 3D &amp; motion, prototyping · Framer · 2 weeks</td></tr>
+            </table>
+          </div>
+        </article>
+
+        <article class="holding reveal">
+          <a class="plate" href="../case-brightsites.html" aria-label="BrightSites case study">
+            <img src="img/project-brightsites.webp" alt="BrightSites agency website with bold yellow and black layout" width="1312" height="816" loading="lazy">
+            <span class="plate-mark">Plate V</span>
+          </a>
+          <div class="h-caption">
+            <h3><a href="../case-brightsites.html">BrightSites</a></h3><span class="yr num">2024</span>
+            <p>A bold agency website, live in ten days for a launch campaign, with no compromise on motion or speed.</p>
+          </div>
+          <table class="h-table num">
+            <tr><th scope="row">Result</th><td><span class="fig">+41%</span>demo-call conversions</td></tr>
+            <tr><th scope="row">Performance</th><td><span class="fig">97</span>PageSpeed score</td></tr>
+          </table>
+        </article>
+
+        <article class="holding reveal">
+          <a class="plate" href="../case-thelist.html" aria-label="Thelist case study">
+            <img src="img/project-thelist.webp" alt="Thelist curation platform with editorial serif typography" width="1312" height="816" loading="lazy">
+            <span class="plate-mark">Plate VI</span>
+          </a>
+          <div class="h-caption">
+            <h3><a href="../case-thelist.html">Thelist</a></h3><span class="yr num">2024</span>
+            <p>An editorial curation platform. Add a listing and the CMS builds the rest, so premium entries stop looking like classified ads.</p>
+          </div>
+          <table class="h-table num">
+            <tr><th scope="row">Result</th><td><span class="fig">+47%</span>time on site</td></tr>
+            <tr><th scope="row">Scale</th><td><span class="fig">500+</span>listings indexed</td></tr>
+          </table>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section class="letter" aria-labelledby="letter-title">
+    <div class="wrap letter-grid">
+      <figure class="portrait">
+        <img src="img/team-emmanuel.webp" alt="Portrait of Emmanuel Akinola, founder of Efzyba Studio" width="300" height="300" loading="lazy">
+        <figcaption><span>Emmanuel Akinola</span><span>Founder</span></figcaption>
+      </figure>
+      <div class="letter-body">
+        <h2 id="letter-title">A letter from <em>the founder.</em></h2>
+        <p>I started Efzyba Studio because I believe design should do more than look good. It should move people to act. I love turning bold ideas into interfaces that are beautiful, functional and useful to the business behind them.</p>
+        <p>My MBA in International Digital Marketing and Business Transformation, from Rome Business School, taught me to see every website as a growth asset. So we don't stop at launch. We pair design with research, SEO and in-house data analytics, and we measure what each build returns.</p>
+        <p>We are a small, senior team across Lagos and London. You work directly with the people who design, build and grow your product, with no hand-offs and no account managers in between.</p>
+        <div class="signoff">
+          <span class="signature">Emmanuel Akinola</span>
+          <p>Founder · Web Designer &amp; Digital Marketer<br>120+ websites in Framer, WordPress, Webflow and Shopify</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICE -->
+  <section id="practice" aria-labelledby="practice-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="practice-title">One studio, <em>every discipline.</em></h2>
+        <p class="lede">Fifteen services under one accountable studio. Strategy, design, build, data and growth are built to work together, not passed between agencies.</p>
+      </div>
+      <div class="practice">
+        <div class="practice-row">
+          <h3>Design <em>&amp;</em> Build</h3>
+          <ul><li>Website design &amp; development</li><li>E-commerce</li><li>Landing pages</li><li>Responsive design</li><li>CMS integration</li></ul>
+          <p class="note">Framer and Webflow for speed and rich interaction, WordPress for content, Shopify and WooCommerce for stores. You always own your site.</p>
+        </div>
+        <div class="practice-row">
+          <h3>Experience</h3>
+          <ul><li>UI/UX design</li><li>Interactive prototyping</li><li>User research &amp; testing</li><li>Accessibility audits</li></ul>
+          <p class="note">Try your user flows in a working Framer prototype before any code is written.</p>
+        </div>
+        <div class="practice-row">
+          <h3>Brand</h3>
+          <ul><li>Brand identity</li><li>Design systems</li></ul>
+        </div>
+        <div class="practice-row">
+          <h3>Growth <em>&amp;</em> Intelligence</h3>
+          <ul><li>SEO</li><li>Digital marketing</li><li>Email &amp; SEM</li><li>Data analytics &amp; reporting</li></ul>
+          <p class="note">Mayokun, our in-house data analyst, builds the dashboards and KPI reports that show whether the work is paying off.</p>
+        </div>
+        <div class="practice-row">
+          <h3>Stewardship</h3>
+          <ul><li>Maintenance &amp; support</li><li>Virtual assistance &amp; operations</li></ul>
+          <p class="note">Ongoing updates, security and monitoring, with UK-based project coordination across time zones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="method" class="method" aria-labelledby="method-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="method-title">From brief to <em>launch</em>, in four steps.</h2>
+        <p class="lede">You'll see a clear timeline after discovery, and progress updates in Slack and Notion until launch.</p>
+      </div>
+      <div class="timeline">
+        <div class="stage"><h3>Discover</h3><p>We study your audience, goals and market, and set a strategy before any design starts.</p></div>
+        <div class="stage"><h3>Design</h3><p>Interactive prototypes in Figma and Framer let you try the experience before we build it.</p></div>
+        <div class="stage"><h3>Build</h3><p>Pixel-perfect, responsive, accessible and SEO-ready, on the platform that suits your goals.</p></div>
+        <div class="stage"><h3>Grow</h3><p>Launch is day one. Analytics, SEO, content and ongoing care keep the results growing.</p></div>
+      </div>
+      <div class="method-foot num">
+        <span><b>2–4 weeks</b>for a marketing website</span>
+        <span><b>4–8 weeks</b>for e-commerce and platforms</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" aria-labelledby="team-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="team-title">Four specialists. <em>One mission.</em></h2>
+        <p class="lede">A small senior team in Lagos and the UK, covering design, data, experience and operations.</p>
+      </div>
+      <div class="team">
+        <article class="member">
+          <img src="img/team-emmanuel.webp" alt="Emmanuel Akinola" width="300" height="300" loading="lazy">
+          <h3>Emmanuel Akinola</h3><p class="role">Founder · Design &amp; Growth</p>
+          <p>Leads strategy, design and growth, with an MBA from Rome Business School.</p>
+        </article>
+        <article class="member">
+          <img src="img/team-victor.webp" alt="Victor Akinola" width="300" height="300" loading="lazy">
+          <h3>Victor Akinola</h3><p class="role">UI/UX Designer</p>
+          <p>Leads research, wireframes and prototypes, and turns messy requirements into clean interfaces.</p>
+        </article>
+        <article class="member">
+          <img src="img/team-mayokun.webp" alt="Mayokun Oluwajuyigbe" width="300" height="300" loading="lazy">
+          <h3>Mayokun Oluwajuyigbe</h3><p class="role">Data Analyst</p>
+          <p>Builds dashboards and finds the stories in your numbers, so every decision is backed by evidence.</p>
+        </article>
+        <article class="member">
+          <img src="img/team-loveth.webp" alt="Loveth Toluwalope" width="300" height="300" loading="lazy">
+          <h3>Loveth Toluwalope</h3><p class="role">Virtual Assistant · UK</p>
+          <p>Your single point of contact, coordinating schedules and project operations across time zones.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONY -->
+  <section class="testimony" aria-labelledby="testimony-title" style="padding-top:0">
+    <div class="wrap">
+      <h2 id="testimony-title" class="small t-label">What clients say</h2>
+      <blockquote>
+        <p class="quote-lead">Emmanuel’s design transformed our website! It’s not just gorgeous, but incredibly user-friendly too. We’ve seen a huge jump in leads since launch, and customers love the easy navigation.</p>
+        <cite class="cite"><b>Sarah Jones</b> · Marketing Manager, Green Earth Solar</cite>
+      </blockquote>
+      <div class="quotes-minor">
+        <blockquote>
+          <p>“Working with Emmanuel was a dream. He took time to understand our business and audience, and the website perfectly reflects our brand identity. The ongoing support gives us real peace of mind.”</p>
+          <cite class="cite"><b>David Lee</b> · CEO, Technovation Inc.</cite>
+        </blockquote>
+        <blockquote>
+          <p>“As a small business owner I was nervous about a professional website, but the process was affordable and stress-free. I got a beautiful site that showcases my artwork perfectly.”</p>
+          <cite class="cite"><b>Emily Garcia</b> · Founder, The Painted Palette</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="close" id="contact" aria-labelledby="close-title">
+    <div class="wrap">
+      <h2 id="close-title">Every project starts with <em>a conversation.</em></h2>
+      <p class="lede">Book 30 minutes with Emmanuel. You'll leave with a clear, honest roadmap for your digital presence, whether or not we work together.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://calendly.com/akinolaemmanuel5" target="_blank" rel="noopener">Book a private strategy call <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+        <a class="btn btn-ghost" href="mailto:emmanuel@efzybastudio.com?subject=New%20project%20enquiry">Write to us</a>
+      </div>
+      <dl class="contact-table">
+        <div><dt>Email</dt><dd><a href="mailto:emmanuel@efzybastudio.com">emmanuel@efzybastudio.com</a></dd></div>
+        <div><dt>Call or WhatsApp</dt><dd class="num"><a href="tel:+2349034520821">+234 903 452 0821</a></dd></div>
+        <div><dt>Studios</dt><dd>Lagos · London · Remote worldwide</dd></div>
+        <div><dt>Response</dt><dd>Within one business day</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><img src="img/monogram-foil.png" alt="" width="30" height="30"><span>Efzyba <i>Studio</i></span></a>
+    <span class="num">© 2026 Efzyba Studio · Designed &amp; engineered in Lagos · London</span>
+    <a href="../index.html">Visit the full site</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const items = document.querySelectorAll('.reveal, .timeline');
+  if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('in')); return; }
+  const io = new IntersectionObserver(entries => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+  items.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
