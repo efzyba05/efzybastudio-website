@@ -1,0 +1,173 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/luxe/fonts/fonts.css">
+<style>
+:root{--ink:#0d0b08;--paper:#ece3cf;--paper2:#cfc4ab;--dim:#a3977e;--foil:#c9a65a;--foilhi:#ead6a0;--rule:rgba(201,166,90,.3);
+--serif:'Bodoni Moda',serif;--sans:'Hanken Grotesk',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ink)}
+body{font-family:var(--sans);color:var(--paper);-webkit-font-smoothing:antialiased;position:relative}
+.grain{position:absolute;inset:0;opacity:.55;pointer-events:none;z-index:50;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .8 0 0 0 0 .7 0 0 0 0 .5 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.vignette{position:absolute;inset:0;z-index:49;pointer-events:none;background:radial-gradient(ellipse 85% 70% at 50% 45%,transparent 55%,rgba(0,0,0,.55))}
+.scene{position:absolute;inset:0;opacity:0}
+.small{font-size:24px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:450}
+.pl{font-family:var(--sans);font-weight:300;font-size:.62em;vertical-align:.32em;margin-right:.04em}
+/* S1 */
+#s1top{position:absolute;left:90px;right:90px;top:560px;display:flex;justify-content:space-between}
+#rule1{position:absolute;left:90px;right:90px;top:612px;height:1px;background:var(--rule);transform-origin:left}
+#seal{position:absolute;left:50%;top:700px;width:340px;height:340px;margin-left:-170px}
+#seal img{width:100%;height:100%;filter:drop-shadow(0 14px 30px rgba(0,0,0,.7))}
+#sheen{position:absolute;inset:0;background:linear-gradient(105deg,transparent 38%,rgba(255,246,220,.95) 50%,transparent 62%);background-size:300% 100%;
+  -webkit-mask:url(/luxe/img/monogram-foil.png) center/contain no-repeat;mix-blend-mode:screen}
+#word{position:absolute;left:0;right:0;top:1100px;text-align:center;font-family:var(--serif);font-size:104px;letter-spacing:-.01em}
+#word i{color:var(--dim)}
+#rule1b{position:absolute;left:90px;right:90px;top:1290px;height:1px;background:var(--rule);transform-origin:right}
+#loc{position:absolute;left:0;right:0;top:1330px;text-align:center;line-height:1.9}
+/* S2 */
+#h1{position:absolute;left:0;right:0;top:560px;text-align:center;font-family:var(--serif);font-size:106px;line-height:1.06;letter-spacing:-.025em;font-weight:400;white-space:nowrap}
+#h1 .ln{display:block}
+#h1 em{color:var(--foilhi);font-style:italic}
+#s2cap{position:absolute;left:0;right:0;top:1300px;text-align:center;line-height:1.8}
+/* S3 */
+#s3head{position:absolute;left:70px;right:70px;top:250px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--rule);padding-bottom:22px}
+#s3head .serif{font-family:var(--serif);font-size:50px}
+#plateWrap{position:absolute;left:70px;top:370px;width:940px;height:585px}
+.plate{position:absolute;inset:0;overflow:hidden;border-radius:3px;background:#0a0806}
+.plate img{width:100%;height:100%;object-fit:cover}
+.pmark{position:absolute;left:22px;top:18px;font-family:var(--serif);font-style:italic;font-size:30px;color:var(--paper2);text-shadow:0 2px 10px #000}
+.res{position:absolute;left:70px;right:70px;top:1030px}
+.res .row{display:flex;justify-content:space-between;align-items:baseline}
+.res .client{font-family:var(--serif);font-size:72px;line-height:1.05}
+.res .fig{font-family:var(--serif);font-size:300px;line-height:1;color:var(--foilhi);margin-top:50px;letter-spacing:-.03em}
+.res .lab{font-size:44px;color:var(--paper2);margin-top:22px;line-height:1.25}
+.res .rl{height:1px;background:var(--rule);margin-top:40px;transform-origin:left}
+/* S4 */
+#phone{position:absolute;left:50%;top:150px;width:520px;height:1066px;margin-left:-260px;border-radius:64px;padding:16px;background:#1a1610;
+  box-shadow:0 0 0 2px rgba(201,166,90,.35),0 60px 120px -30px rgba(0,0,0,.95);transform-origin:50% 100%}
+#screen{width:488px;height:1034px;border-radius:50px;overflow:hidden;position:relative;background:var(--ink)}
+#frame{width:390px;height:826px;border:0;transform:scale(1.2513);transform-origin:0 0;display:block;background:var(--ink)}
+#s4cap{position:absolute;left:0;right:0;top:1340px;text-align:center;font-family:var(--serif);font-size:58px;line-height:1.35;font-variant-numeric:lining-nums}
+#s4cap b{font-weight:400;color:var(--foilhi)}
+#s4cap .sub{display:block;font-family:var(--sans);font-size:24px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:26px}
+/* S5 */
+#seal5{position:absolute;left:50%;top:430px;width:150px;height:150px;margin-left:-75px}
+#h5{position:absolute;left:0;right:0;top:660px;text-align:center;font-family:var(--serif);font-weight:400;font-size:118px;line-height:1.04;letter-spacing:-.02em}
+#h5 em{font-style:normal;color:var(--foilhi)}
+#btn{position:absolute;left:50%;top:1140px;height:116px;padding:0 54px 0 62px;border-radius:999px;display:flex;align-items:center;gap:24px;
+  font:500 40px/1 var(--sans);color:#17120a;white-space:nowrap;
+  background:linear-gradient(180deg,#ead6a0,#c9a65a 55%,#b18f45);box-shadow:0 1px 0 rgba(255,240,200,.5) inset,0 22px 44px -14px rgba(0,0,0,.8)}
+#btn svg{width:38px;height:38px}
+#url5{position:absolute;left:0;right:0;top:1350px;text-align:center;font-size:34px;letter-spacing:.24em;text-transform:uppercase;color:var(--paper2)}
+#tap{position:absolute;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:rgba(236,227,207,.28);box-shadow:0 0 0 2px rgba(236,227,207,.6);z-index:40}
+#ripple{position:absolute;width:40px;height:40px;border-radius:50%;border:2px solid var(--foilhi);margin:-20px 0 0 -20px;opacity:0;z-index:39}
+</style></head>
+<body>
+<div class="grain"></div><div class="vignette"></div>
+
+<div id="s1" class="scene">
+  <div id="s1top" class="small"><span>The Annual Review</span><span>Vol. VI</span></div>
+  <div id="rule1"></div>
+  <div id="seal"><img src="/luxe/img/monogram-foil.png"><div id="sheen"></div></div>
+  <div id="word">Efzyba <i>Studio</i></div>
+  <div id="rule1b"></div>
+  <div id="loc" class="small">Design · Data · Growth<br>Lagos · London</div>
+</div>
+
+<div id="s2" class="scene">
+  <h1 id="h1"><span class="ln">We design</span><span class="ln">digital experiences</span><span class="ln">that feel like</span><span class="ln">the <em>future.</em></span></h1>
+  <div id="s2cap" class="small">A senior studio for<br>design, data and growth</div>
+</div>
+
+<div id="s3" class="scene">
+  <div id="s3head"><span class="serif">The portfolio, <span style="color:var(--foilhi)">with results.</span></span></div>
+  <div id="plateWrap">
+    <div class="plate" id="p0"><img src="/luxe/img/project-hebe.webp"><span class="pmark">Plate I</span></div>
+    <div class="plate" id="p1"><img src="/luxe/img/project-healthwell.webp"><span class="pmark">Plate III</span></div>
+    <div class="plate" id="p2"><img src="/luxe/img/project-designcube.webp"><span class="pmark">Plate IV</span></div>
+  </div>
+  <div class="res" id="r0"><div class="row"><div class="client">Hebe Network</div><div class="small">2025</div></div><div class="fig"><span class="pl">+</span>85%</div><div class="lab">qualified leads, quarter over quarter</div><div class="rl"></div></div>
+  <div class="res" id="r1"><div class="row"><div class="client">HealthWell</div><div class="small">2024</div></div><div class="fig"><span class="pl">+</span>72%</div><div class="lab">online bookings in the first quarter</div><div class="rl"></div></div>
+  <div class="res" id="r2"><div class="row"><div class="client">DesignCube</div><div class="small">2024</div></div><div class="fig">2.3×</div><div class="lab">demo requests in two months</div><div class="rl"></div></div>
+</div>
+
+<div id="s4" class="scene">
+  <div id="phone"><div id="screen"><iframe id="frame" src="/luxe/index.html"></iframe></div></div>
+  <div id="s4cap"><b>80<span class="pl" style="vertical-align:.5em">+</span></b> clients · <b>120<span class="pl" style="vertical-align:.5em">+</span></b> websites<br><b>6<span class="pl" style="vertical-align:.5em">+</span></b> years in practice<span class="sub">efzybastudio.com</span></div>
+</div>
+
+<div id="s5" class="scene">
+  <div id="seal5"><img src="/luxe/img/monogram-foil.png" style="width:100%"></div>
+  <h2 id="h5">Every project<br>starts with<br><em>a conversation.</em></h2>
+  <div id="btn">Book a private strategy call <svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div id="url5">efzybastudio.com</div>
+  <div id="ripple"></div><div id="tap"></div>
+</div>
+
+<script>
+const B=60/96, T=b=>b*B, cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), p=(t,a,d)=>cl((t-a)/d);
+const eo=x=>1-Math.pow(1-x,4), eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2, $=id=>document.getElementById(id);
+function env(t,a,b,fi=.35,fo=.3,last=false){const A=T(a),Bb=T(b); if(t<A||(!last&&t>=Bb)) return 0; const i=eo(p(t,A,fi)); const o=last?1:1-p(t,Bb-fo,fo); return Math.min(i,o);}
+function rise(el,t,a,dist=40,dur=.9,blur=10){const k=eo(p(t,a,dur)); el.style.opacity=k; el.style.transform=`translateY(${(1-k)*dist}px)`; el.style.filter=`blur(${(1-k)*blur}px)`;}
+window.render=function(t){
+  // S1 0-5
+  $('s1').style.opacity=env(t,0,5,.01);
+  const r=eio(p(t,.05,1.1)); $('rule1').style.transform=`scaleX(${r})`; $('rule1b').style.transform=`scaleX(${r})`;
+  rise($('s1top'),t,.2,0,.8,0);
+  const st=eo(p(t,T(1),.7)), seal=$('seal');
+  seal.style.opacity=p(t,T(1),.12); seal.style.transform=`scale(${1.18-.18*st})`; seal.style.filter=`blur(${(1-st)*8}px)`;
+  $('sheen').style.backgroundPosition=`${100-100*eio(p(t,T(1.8),1.3))}% 0`;
+  rise($('word'),t,T(2),30,.9,8); rise($('loc'),t,T(3),20,.8,4);
+  $('s1').style.transform=`scale(${1+0.03*p(t,0,T(5))})`;
+  // S2 5-11
+  $('s2').style.opacity=env(t,5,11);
+  document.querySelectorAll('#h1 .ln').forEach((el,i)=>rise(el,t,T(5+i*.75)+.05,60,1.0,12));
+  rise($('s2cap'),t,T(8.5),20,.9,4);
+  // S3 11-20
+  $('s3').style.opacity=env(t,11,20);
+  rise($('s3head'),t,T(11)+.15,16,.9,0);
+  for(let i=0;i<3;i++){
+    const a=T(11+3*i), k=eio(p(t,a,.75)), pl=$('p'+i);
+    pl.style.clipPath=`inset(${(1-k)*100}% 0 0 0)`; pl.style.zIndex=i;
+    pl.querySelector('img').style.transform=`scale(${1.12-.08*eo(p(t,a,2.2))-.04*p(t,a,T(3)+.5)})`;
+    const rr=$('r'+i), end=i<2?T(11+3*i+3):99, kin=eo(p(t,a+.15,.8)), kout=p(t,end-.22,.22);
+    rr.style.opacity=Math.min(kin,1-kout); rr.style.transform=`translateY(${(1-kin)*30}px)`; rr.style.filter=`blur(${(1-kin)*8}px)`;
+    rr.querySelector('.rl').style.transform=`scaleX(${eio(p(t,a+.3,1))})`;
+  }
+  // S4 20-24
+  $('s4').style.opacity=env(t,20,24);
+  const k4=eo(p(t,T(20),1.1));
+  $('phone').style.transform=`perspective(2400px) translateY(${(1-k4)*140}px) rotateX(${(1-k4)*12}deg) scale(${.95+.05*k4})`;
+  const fr=$('frame'); if(fr.contentWindow) fr.contentWindow.scrollTo(0, 2900*eio(p(t,T(20)+.5,T(4)-.8)));
+  rise($('s4cap'),t,T(21),20,.8,6);
+  // S5 24-30
+  $('s5').style.opacity=env(t,24,30,.35,.3,true);
+  rise($('seal5'),t,T(24),0,.8,8); rise($('h5'),t,T(24)+.1,40,1.0,10);
+  const bk=eo(p(t,T(25.5),.8)), btn=$('btn'), P=T(28);
+  const press=t>=P&&t<P+.16?.96:(t>=P+.16?1-.04*(1-eo(p(t,P+.16,.25))):1);
+  btn.style.opacity=bk; btn.style.transform=`translateX(-50%) translateY(${(1-bk)*24}px) scale(${press})`;
+  btn.style.filter=t>=P+.16?`brightness(${1+.12*(1-p(t,P+.16,.6))})`:'none';
+  rise($('url5'),t,T(28.5),14,.8,4);
+  const bx=540, by=1198, tap=$('tap');
+  const tk=p(t,P-.25,.25);
+  tap.style.left=bx+'px'; tap.style.top=by+'px';
+  tap.style.opacity= t<P-.25?0:(t<P+.2? tk : 1-p(t,P+.2,.3));
+  tap.style.transform=`scale(${t<P?1.2-.2*tk:.9})`;
+  const rp=$('ripple'), rk=p(t,P,.6); rp.style.left=bx+'px'; rp.style.top=by+'px';
+  rp.style.opacity=t>=P?(1-rk)*.9:0; rp.style.transform=`scale(${1+rk*4})`;
+};
+window.ready=(async()=>{
+  await document.fonts.ready;
+  await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));
+  const fr=$('frame');
+  await new Promise(r=>{ if(fr.contentDocument&&fr.contentDocument.readyState==='complete') r(); else fr.addEventListener('load',r,{once:true}); });
+  const d=fr.contentDocument, s=d.createElement('style');
+  s.textContent='*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto!important;scrollbar-width:none}::-webkit-scrollbar{display:none}.js .reveal .plate{clip-path:none!important}.js .reveal .plate img{transform:none!important}';
+  d.head.appendChild(s);
+  d.querySelectorAll('img').forEach(i=>i.loading='eager');
+  d.querySelectorAll('.reveal,.timeline').forEach(e=>e.classList.add('in'));
+  await d.fonts.ready; await Promise.all([...d.images].map(i=>i.decode().catch(()=>{})));
+  return true;
+})();
+</script>
+</body></html>
